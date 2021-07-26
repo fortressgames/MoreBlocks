@@ -27,7 +27,9 @@ public class ClickItemListener implements Listener {
 		if(e.getHand() == EquipmentSlot.OFF_HAND) return;
 
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.NOTE_BLOCK) {
-			e.setCancelled(true);
+			if(!player.isSneaking()) {
+				e.setCancelled(true);
+			}
 		}
 
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK) {
@@ -52,6 +54,7 @@ public class ClickItemListener implements Listener {
 
 					block.setBlockData(noteBlock);
 					player.playSound(player.getLocation(), Sound.BLOCK_STONE_PLACE, 1, 1);
+					e.setCancelled(true);
 				}
 			}
 		}

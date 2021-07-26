@@ -32,7 +32,7 @@ public class MoreBlocksMenu extends InventoryMenu {
 			setItem(block(moreBlock.getInstrument(), moreBlock.getNote().getId(), moreBlock.getModelID()), slot, inventoryClickEvent -> {
 
 				player.getInventory().addItem(inventoryClickEvent.getCurrentItem());
-				player.playSound(player.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1, 1);
+				player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 1, 1);
 			});
 
 			slot++;

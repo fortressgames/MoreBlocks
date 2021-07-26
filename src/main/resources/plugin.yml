@@ -1,0 +1,10 @@
+name: MoreBlocks
+version: '1.0'
+description: Allows you to texture note blocks and prevents them from updating.
+authors: [FortressGames]
+main: net.fortressgames.moreblocks.MoreBlocks
+api-version: 1.13
+commands:
+  moreblock:
+    aliases: [moreblocks, mb]
+    description: Main command

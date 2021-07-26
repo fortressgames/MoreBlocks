@@ -58,6 +58,7 @@ public class MoreBlocks extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new InventoryClickListener(), this);
 		this.getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		this.getServer().getPluginManager().registerEvents(new ClickItemListener(), this);
+		this.getServer().getPluginManager().registerEvents(new BlockUpdateListener(), this);
 
 		getCommand("moreblock").setExecutor(new MoreBlocksCommand());
 

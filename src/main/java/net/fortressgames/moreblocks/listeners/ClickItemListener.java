@@ -27,7 +27,7 @@ public class ClickItemListener implements Listener {
 		if(e.getHand() == EquipmentSlot.OFF_HAND) return;
 
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.NOTE_BLOCK) {
-			if(!player.isSneaking()) {
+			if(!player.isSneaking() || player.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
 				e.setCancelled(true);
 			}
 		}
@@ -49,7 +49,7 @@ public class ClickItemListener implements Listener {
 
 					NoteBlock noteBlock = ((NoteBlock) Bukkit.createBlockData(Material.NOTE_BLOCK));;
 
-					noteBlock.setInstrument(Instrument.valueOf(ChatColor.stripColor(item.getItemMeta().getDisplayName())));
+					noteBlock.setInstrument(Instrument.valueOf(ChatColor.stripColor(item.getItemMeta().getDisplayName().replace(" ", "_"))));
 					noteBlock.setNote(new Note(Integer.valueOf(ChatColor.stripColor(item.getItemMeta().getLore().get(0).replace("Note: ", "")))));
 
 					block.setBlockData(noteBlock);

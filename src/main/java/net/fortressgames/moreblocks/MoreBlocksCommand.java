@@ -21,12 +21,9 @@ public class MoreBlocksCommand implements CommandExecutor {
 
 			new MoreBlocksMenu((Player)sender, 1).openInventory();
 			return true;
-
-		} else {
-			sender.sendMessage(ChatColor.RED + "You do not have permission for this!");
 		}
 
-		if(sender.hasPermission("moreblocks.reload") && sender instanceof Player) {
+		if(sender.hasPermission("moreblocks.reload")) {
 
 			if(args.length == 1 && args[0].equalsIgnoreCase("reload")) {
 				MoreBlocks.getInstance().reloadConfig();
@@ -35,11 +32,9 @@ public class MoreBlocksCommand implements CommandExecutor {
 				sender.sendMessage(ChatColor.WHITE + ChatColor.BOLD.toString() + MoreBlocks.getInstance().getBlocks().size() + ChatColor.GREEN + " blocks loaded!");
 			}
 			return true;
-
-		} else {
-			sender.sendMessage(ChatColor.RED + "You do not have permission for this!");
 		}
 
+		sender.sendMessage(ChatColor.RED + "You do not have permission for this!");
 		return false;
 	}
 }

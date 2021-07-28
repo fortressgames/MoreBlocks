@@ -2,6 +2,7 @@ package net.fortressgames.moreblocks;
 
 import net.fortressgames.moreblocks.menus.MoreBlocksMenu;
 import net.fortressgames.moreblocks.utils.ViewType;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,6 +21,23 @@ public class MoreBlocksCommand implements CommandExecutor {
 
 			new MoreBlocksMenu((Player)sender, 1).openInventory();
 			return true;
+
+		} else {
+			sender.sendMessage(ChatColor.RED + "You do not have permission for this!");
+		}
+
+		if(sender.hasPermission("moreblocks.reload") && sender instanceof Player) {
+
+			if(args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+				MoreBlocks.getInstance().reloadConfig();
+				MoreBlocks.getInstance().loadBlocks();
+				sender.sendMessage(ChatColor.GREEN + "Reloaded!");
+				sender.sendMessage(ChatColor.WHITE + ChatColor.BOLD.toString() + MoreBlocks.getInstance().getBlocks().size() + ChatColor.GREEN + " blocks loaded!");
+			}
+			return true;
+
+		} else {
+			sender.sendMessage(ChatColor.RED + "You do not have permission for this!");
 		}
 
 		return false;

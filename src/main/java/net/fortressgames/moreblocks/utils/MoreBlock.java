@@ -1,7 +1,7 @@
 package net.fortressgames.moreblocks.utils;
 
 import lombok.Data;
-import org.bukkit.Instrument;
+import net.fortressgames.moreblocks.Instrument;
 import org.bukkit.Note;
 
 @Data

@@ -35,4 +35,13 @@ public enum ViewType {
 
 		return ALL;
 	}
+
+	public static ViewType back(ViewType type) {
+
+		for(ViewType viewType : ViewType.values()) {
+			if(viewType.id == type.id -1) return viewType;
+		}
+
+		return PLING;
+	}
 }

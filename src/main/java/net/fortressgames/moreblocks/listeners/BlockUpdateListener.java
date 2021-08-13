@@ -1,5 +1,6 @@
 package net.fortressgames.moreblocks.listeners;
 
+import net.fortressgames.moreblocks.Instrument;
 import net.fortressgames.moreblocks.MoreBlocks;
 import net.fortressgames.moreblocks.utils.MoreBlock;
 import org.bukkit.Bukkit;
@@ -39,7 +40,7 @@ public class BlockUpdateListener implements Listener {
 				for(Block block : blocks) {
 					NoteBlock noteBlock = (NoteBlock) block.getBlockData();
 
-					oldBlocks.put(block, new MoreBlock(noteBlock.getInstrument(), noteBlock.getNote(), 0));
+					oldBlocks.put(block, new MoreBlock(Instrument.toCustom(noteBlock.getInstrument()), noteBlock.getNote(), 0));
 				}
 
 				fixBlocks(oldBlocks, player);
@@ -74,7 +75,7 @@ public class BlockUpdateListener implements Listener {
 		for(Block block : blocks) {
 			NoteBlock noteBlock = (NoteBlock) block.getBlockData();
 
-			oldBlocks.put(block, new MoreBlock(noteBlock.getInstrument(), noteBlock.getNote(), 0));
+			oldBlocks.put(block, new MoreBlock(Instrument.toCustom(noteBlock.getInstrument()), noteBlock.getNote(), 0));
 		}
 
 		fixBlocks(oldBlocks, player);
@@ -92,7 +93,7 @@ public class BlockUpdateListener implements Listener {
 		for(Block block : blocks) {
 			NoteBlock noteBlock = (NoteBlock) block.getBlockData();
 
-			oldBlocks.put(block, new MoreBlock(noteBlock.getInstrument(), noteBlock.getNote(), 0));
+			oldBlocks.put(block, new MoreBlock(Instrument.toCustom(noteBlock.getInstrument()), noteBlock.getNote(), 0));
 		}
 
 		e.setCancelled(true);
@@ -109,7 +110,7 @@ public class BlockUpdateListener implements Listener {
 					block.getLocation().getBlockZ());
 
 			NoteBlock noteBlock = ((NoteBlock) Bukkit.createBlockData(Material.NOTE_BLOCK));
-			noteBlock.setInstrument(oldBlocks.get(b).getInstrument());
+			noteBlock.setInstrument(oldBlocks.get(b).getInstrument().getBaseInstrument());
 			noteBlock.setNote(oldBlocks.get(b).getNote());
 
 			b.setBlockData(noteBlock);
@@ -119,7 +120,7 @@ public class BlockUpdateListener implements Listener {
 	private void fixBlocks(HashMap<Block, MoreBlock> oldBlocks, Player player) {
 		for(Map.Entry<Block, MoreBlock> block : oldBlocks.entrySet()) {
 			NoteBlock noteBlock = ((NoteBlock) Bukkit.createBlockData(Material.NOTE_BLOCK));
-			noteBlock.setInstrument(block.getValue().getInstrument());
+			noteBlock.setInstrument(block.getValue().getInstrument().getBaseInstrument());
 			noteBlock.setNote(block.getValue().getNote());
 
 			block.getKey().setBlockData(noteBlock);

@@ -5,7 +5,6 @@ import net.fortressgames.moreblocks.listeners.*;
 import net.fortressgames.moreblocks.utils.InventoryMenu;
 import net.fortressgames.moreblocks.utils.MoreBlock;
 import net.fortressgames.moreblocks.utils.ViewType;
-import org.bukkit.Instrument;
 import org.bukkit.Material;
 import org.bukkit.Note;
 import org.bukkit.entity.Player;
@@ -19,7 +18,7 @@ public class MoreBlocks extends JavaPlugin {
 
 	@Getter	private static MoreBlocks instance;
 	@Getter private Material itemType;
-	@Getter private List<MoreBlock> blocks = new ArrayList<>();
+	@Getter private final List<MoreBlock> blocks = new ArrayList<>();
 
 	@Getter private final HashMap<Player, InventoryMenu> openMenu = new HashMap<>();
 	@Getter private final HashMap<Player, ViewType> viewType = new HashMap<>();
@@ -78,3 +77,6 @@ public class MoreBlocks extends JavaPlugin {
 		System.out.println("\033[0;33m" + "[MoreBlocks] Version: " + getDescription().getVersion() + "\033[0;31m" + " Disabled!" + "\033[0m");
 	}
 }
+
+//TODO left click moves menu select up, right click moves down
+//todo auto shift on noteblocks placing

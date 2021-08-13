@@ -29,7 +29,7 @@ public class MoreBlocksMenu extends InventoryMenu {
 
 			MoreBlock moreBlock = blocks.get(i + ((page -1) * 45));
 
-			setItem(block(moreBlock.getInstrument(), moreBlock.getNote().getId(), moreBlock.getModelID()), slot, inventoryClickEvent -> {
+			setItem(block(moreBlock.getInstrument().getBaseInstrument(), moreBlock.getNote().getId(), moreBlock.getModelID()), slot, inventoryClickEvent -> {
 
 				player.getInventory().addItem(inventoryClickEvent.getCurrentItem());
 				player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 1, 1);
@@ -59,9 +59,16 @@ public class MoreBlocksMenu extends InventoryMenu {
 		}
 
 		setItem(view(), 49, inventoryClickEvent -> {
-			MoreBlocks.getInstance().getViewType().replace(player, ViewType.next(
-					MoreBlocks.getInstance().getViewType().get(getPlayer())
-			));
+			if(inventoryClickEvent.getClick().isRightClick()) {
+				MoreBlocks.getInstance().getViewType().replace(player, ViewType.next(
+						MoreBlocks.getInstance().getViewType().get(getPlayer())
+				));
+
+			} else if(inventoryClickEvent.getClick().isLeftClick()) {
+				MoreBlocks.getInstance().getViewType().replace(player, ViewType.back(
+						MoreBlocks.getInstance().getViewType().get(getPlayer())
+				));
+			}
 
 			new MoreBlocksMenu(player, 1).openInventory();
 			player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 1, 2);
@@ -74,7 +81,7 @@ public class MoreBlocksMenu extends InventoryMenu {
 		for(MoreBlock moreBlock : MoreBlocks.getInstance().getBlocks()) {
 
 			if(MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.ALL) ||
-					MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.valueOf(moreBlock.getInstrument().name()))) {
+					MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.valueOf(moreBlock.getInstrument().getBaseInstrument().name()))) {
 
 				moreBlocks.add(moreBlock);
 			}
@@ -108,6 +115,8 @@ public class MoreBlocksMenu extends InventoryMenu {
 				lore.add(ChatColor.GRAY + instrument.name());
 			}
 		}
+
+		lore.add(ChatColor.YELLOW + "Right-Click: Up | Left-Click: Down");
 
 		return new ItemBuilder(Material.KNOWLEDGE_BOOK).name(ChatColor.GOLD + "View type:").lore(lore).build();
 	}

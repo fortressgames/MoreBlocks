@@ -15,12 +15,14 @@ public class MoreBlocksCommand implements CommandExecutor {
 
 		if(sender.hasPermission("moreblocks.menu") && sender instanceof Player) {
 
-			if(!MoreBlocks.getInstance().getViewType().containsKey(sender)) {
-				MoreBlocks.getInstance().getViewType().put((Player)sender, ViewType.ALL);
-			}
+			if(args.length == 0) {
+				if(!MoreBlocks.getInstance().getViewType().containsKey(sender)) {
+					MoreBlocks.getInstance().getViewType().put((Player)sender, ViewType.ALL);
+				}
 
-			new MoreBlocksMenu((Player)sender, 1).openInventory();
-			return true;
+				new MoreBlocksMenu((Player)sender, 1).openInventory();
+				return true;
+			}
 		}
 
 		if(sender.hasPermission("moreblocks.reload")) {

@@ -77,6 +77,3 @@ public class MoreBlocks extends JavaPlugin {
 		System.out.println("\033[0;33m" + "[MoreBlocks] Version: " + getDescription().getVersion() + "\033[0;31m" + " Disabled!" + "\033[0m");
 	}
 }
-
-//TODO left click moves menu select up, right click moves down
-//todo auto shift on noteblocks placing

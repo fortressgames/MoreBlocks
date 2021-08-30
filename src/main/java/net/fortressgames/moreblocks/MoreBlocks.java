@@ -77,3 +77,5 @@ public class MoreBlocks extends JavaPlugin {
 		System.out.println("\033[0;33m" + "[MoreBlocks] Version: " + getDescription().getVersion() + "\033[0;31m" + " Disabled!" + "\033[0m");
 	}
 }
+
+//todo switch up and down

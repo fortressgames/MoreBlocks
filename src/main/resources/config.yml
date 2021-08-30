@@ -2,7 +2,7 @@
 # Moreblocks Config #
 # ################# #
 # 'ItemType' - Item to use for viewing blocks in the MoreBlocks menu.
-# Instrument types listed by note numbers changing '#NA' to the CustomModelData value will load the block in the MoreBlocks menu.
+# Instrument types listed by note numbers changing '#NA' to the CustomModelData value to load the block in the MoreBlocks menu.
 ItemType: BRICK
 HARP:
   '0': '#NA'
@@ -56,7 +56,7 @@ BASEDRUM:
   '22': '#NA'
   '23': '#NA'
   '24': '#NA'
-SNARE_DRUM:
+SNARE:
   '0': '#NA'
   '1': '#NA'
   '2': '#NA'
@@ -82,7 +82,7 @@ SNARE_DRUM:
   '22': '#NA'
   '23': '#NA'
   '24': '#NA'
-STICKS:
+HAT:
   '0': '#NA'
   '1': '#NA'
   '2': '#NA'
@@ -108,7 +108,7 @@ STICKS:
   '22': '#NA'
   '23': '#NA'
   '24': '#NA'
-BASS_GUITAR:
+BASS:
   '0': '#NA'
   '1': '#NA'
   '2': '#NA'

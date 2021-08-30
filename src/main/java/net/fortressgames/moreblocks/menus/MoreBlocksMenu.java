@@ -59,12 +59,12 @@ public class MoreBlocksMenu extends InventoryMenu {
 		}
 
 		setItem(view(), 49, inventoryClickEvent -> {
-			if(inventoryClickEvent.getClick().isRightClick()) {
+			if(inventoryClickEvent.getClick().isLeftClick()) {
 				MoreBlocks.getInstance().getViewType().replace(player, ViewType.next(
 						MoreBlocks.getInstance().getViewType().get(getPlayer())
 				));
 
-			} else if(inventoryClickEvent.getClick().isLeftClick()) {
+			} else if(inventoryClickEvent.getClick().isRightClick()) {
 				MoreBlocks.getInstance().getViewType().replace(player, ViewType.back(
 						MoreBlocks.getInstance().getViewType().get(getPlayer())
 				));

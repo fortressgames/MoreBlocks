@@ -7,9 +7,9 @@ public enum Instrument {
 
 	HARP(org.bukkit.Instrument.PIANO),
 	BASEDRUM(org.bukkit.Instrument.BASS_DRUM),
-	SNARE_DRUM(org.bukkit.Instrument.SNARE_DRUM),
-	STICKS(org.bukkit.Instrument.STICKS),
-	BASS_GUITAR(org.bukkit.Instrument.BASS_GUITAR),
+	SNARE(org.bukkit.Instrument.SNARE_DRUM),
+	HAT(org.bukkit.Instrument.STICKS),
+	BASS(org.bukkit.Instrument.BASS_GUITAR),
 	FLUTE(org.bukkit.Instrument.FLUTE),
 	BELL(org.bukkit.Instrument.BELL),
 	GUITAR(org.bukkit.Instrument.GUITAR),

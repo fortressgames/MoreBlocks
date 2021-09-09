@@ -47,6 +47,7 @@ public class MoreBlocks extends JavaPlugin {
 		this.getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		this.getServer().getPluginManager().registerEvents(new ClickItemListener(), this);
 		this.getServer().getPluginManager().registerEvents(new BlockUpdateListener(), this);
+		this.getServer().getPluginManager().registerEvents(new BlockChangeListener(), this);
 
 		getCommand("moreblock").setExecutor(new MoreBlocksCommand());
 
@@ -77,5 +78,3 @@ public class MoreBlocks extends JavaPlugin {
 		System.out.println("\033[0;33m" + "[MoreBlocks] Version: " + getDescription().getVersion() + "\033[0;31m" + " Disabled!" + "\033[0m");
 	}
 }
-
-//todo switch up and down

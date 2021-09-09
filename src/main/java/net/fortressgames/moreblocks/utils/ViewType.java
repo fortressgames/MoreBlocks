@@ -3,11 +3,11 @@ package net.fortressgames.moreblocks.utils;
 public enum ViewType {
 
 	ALL(0),
-	PIANO(1),
-	BASS_DRUM(2),
-	SNARE_DRUM(3),
-	STICKS(4),
-	BASS_GUITAR(5),
+	HARP(1),
+	BASEDRUM(2),
+	SNARE(3),
+	HAT(4),
+	BASS(5),
 	FLUTE(6),
 	BELL(7),
 	GUITAR(8),

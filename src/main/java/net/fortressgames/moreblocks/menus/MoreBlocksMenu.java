@@ -81,7 +81,7 @@ public class MoreBlocksMenu extends InventoryMenu {
 		for(MoreBlock moreBlock : MoreBlocks.getInstance().getBlocks()) {
 
 			if(MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.ALL) ||
-					MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.valueOf(moreBlock.getInstrument().getBaseInstrument().name()))) {
+					MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.valueOf(moreBlock.getInstrument().name()))) {
 
 				moreBlocks.add(moreBlock);
 			}
@@ -106,7 +106,7 @@ public class MoreBlocksMenu extends InventoryMenu {
 			lore.add(ChatColor.GRAY + "ALL");
 		}
 
-		for(Instrument instrument : Instrument.values()) {
+		for(net.fortressgames.moreblocks.Instrument instrument : net.fortressgames.moreblocks.Instrument.values()) {
 
 			if(MoreBlocks.getInstance().getViewType().get(getPlayer()).equals(ViewType.valueOf(instrument.name()))) {
 				lore.add(ChatColor.GRAY + instrument.name() + " -" + ChatColor.GREEN + ChatColor.BOLD + " [SELECTED]");
